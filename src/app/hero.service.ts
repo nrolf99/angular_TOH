@@ -17,4 +17,12 @@ export class HeroService {
     this.messageService.add('HeroService: fetched heroes');
     return heroes;
   }
+
+  // Return Hero object with the input id number
+  // For now, we assume that such a hero does exist 
+  getHero(id: number) {
+    const hero = HEROES.find(h => h.id === id)!;
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(hero);
+  }
 }
